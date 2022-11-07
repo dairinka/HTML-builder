@@ -10,7 +10,7 @@ fs.readdir(path.join(__dirname, "styles"), "utf-8", (err, files) => {
     let fileBreakDown = file.split(".");
     const reader = fs.createReadStream(path.join(__dirname, "styles", file));
     reader.on("data", (chunk) => {
-      if (fileBreakDown[1] === "css") {
+      if (fileBreakDown[fileBreakDown.length - 1] === "css") {
         arrDataCssFiles.push(chunk.toString());
       }
     });
