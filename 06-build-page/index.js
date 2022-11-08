@@ -23,7 +23,11 @@ class BuildHtml {
 
   
   _doPath(...someDir) {
-    return path.resolve(__dirname, someDir.join("/"));
+     let currentPath = __dirname;
+    for(const dir of someDir){
+      currentPath = path.resolve(currentPath, dir);
+    }
+    return currentPath;
   }
 
   copyFiles(fromDir, toDir) {
